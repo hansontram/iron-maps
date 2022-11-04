@@ -1,0 +1,28 @@
+<%- include('partials/header') -%>
+  <div class="container">
+    <div class="">
+      <!-- LIST OF GYMS -->
+      <ul class="">
+        <% for(var i=0; i<gyms.length; i++) {%>
+          <li class="">
+            <a href="/gym/<%= gyms[i]._id%>">
+              <img class="" src="<%= gyms[i].image%>">
+              <div class="">
+                <h2><%= gyms[i].gymName %></h2>
+              </div>
+            </a>
+            <div class="">
+              <p><%= gyms[i].location %></p>
+            </div>
+            
+          </li>
+        <% } %>
+        <% console.log("Feed Data (all gyms): ", gyms) %>  <!-- if this log shows the gyms data in your console, then that means we have access to the data here. does not necessarily mean we're displaying it. -->
+       
+        </ul>
+    </div>
+  </div>  
+
+
+
+<%- include('partials/footer') -%>
