@@ -7,7 +7,7 @@
       <img class="" src="<%= gym.image%>" />
       <div class="">
 
-        <!-- LIKE BUTTON -->
+        <!-- LIKE GYM BUTTON -->
         <form
           class=""
           action="/gym/likegym/<%= gym.id %>?_method=PUT"
@@ -18,7 +18,12 @@
         
         <h3 class="">Likes: <%= gym.likes %></h3>
         <%if(gym.userId == user.id){ %>
-
+  
+          <!-- EDIT GYM BUTTON -->
+      
+  <a href="/addGymPage" class="addGym">
+    <span class="fas fa-edit"></span>
+    </a>
          <!-- DELETE GYM BUTTON -->
          <form
          class=""
@@ -65,23 +70,13 @@
     <%if(gym.userId == user.id){ %>  <!--TODO: set to reviewBy = userid-->
 
       <!-- EDIT REVIEW BUTTON -->
-      <!-- TODO: not working for now, figure out href link (ejs syntax)  -->
       
                   <a href="/review/getUpdateReviewPage/<%= reviews[i]._id%>" class="review">
                     <span class="fas fa-edit"></span>
                     </a>
-                  <!-- <form
-      action="/review/updateReview/<%= reviews[i].review %>?_method=PUT"
-      method="POST"
-      class="col-3"
-    >
-      <button class="btn btn-primary fa-solid fa-pencil" type="submit"></button>
-    </form> -->
-    
     
     
     <!-- DELETE REVIEW BUTTON -->
-    <!-- TODO: Action works now, just needs to refresh corectly after delete -->
       <form
       action="/review/deleteReview/<%= reviews[i]._id%>?_method=DELETE"
       method="POST"
@@ -106,8 +101,8 @@
     </div>
   </div>
 </div>
+<% console.log("CONSOLE USER WORKS!", user) %>
 <% console.log("Feed Data (reviews): ", reviews) %>
 <%- include('partials/footer') -%>
 
 
-<!-- TODO: UpdateGym & updateReview: separate ejs page? -->

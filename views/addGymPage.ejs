@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="mt-5 md:col-span-2 md:mt-0">
-      <form action="/gym/createGym" method="POST">
+      <form action="/gym/createGym" enctype="multipart/form-data" method="POST">
         <div class="shadow sm:overflow-hidden sm:rounded-md">
           <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
             <div class="grid grid-cols-3 gap-6">
@@ -71,8 +71,9 @@
                   <div class="flex text-sm text-gray-600">
                     <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
                       <span>Upload a file</span>
-                      <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                      
                     </label>
+                    <input id="file-upload" name="file" type="file" class="sr-only">
                     <p class="pl-1">or drag and drop</p>
                   </div>
                   <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
@@ -97,7 +98,7 @@
 </div>
 
 
-
+<% console.log("CONSOLE USER WORKS!", user) %>
 
 
     <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>

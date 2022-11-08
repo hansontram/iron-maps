@@ -30,24 +30,25 @@ module.exports = {
       },
       createGym: async (req, res) => {
         console.log(req.body)
+        console.log(req.file)
         console.log("createGym endpoint hit")
         try {
           // TODO: Upload image to cloudinary
-        //   const result = await cloudinary.uploader.upload(req.file.path);
+          const result = await cloudinary.uploader.upload(req.file.path);
     
           const newGym = await Gym.create({ 
             gymName: req.body.gymName,
-            image:"TBA",// result.secure_url,
-            cloudinaryId: "TBA", //result.public_id,
+            image: result.secure_url,
+            cloudinaryId: result.public_id,
             caption: req.body.caption,
             location: req.body.location,
             hours: req.body.hours,
             specialty: req.body.specialty,
             likes: 0,
-            userId: "635af8f560c69c6baf6bda54" // TODO: add back req.user.id, hardcoding userId for endpoint testing
+            userId: req.user.id 
           });
           console.log("Gym has been added!", newGym);
-          res.redirect(`/gym/${newGym._id}`); // TODO: confirm redirect works when hooking up to front end
+          res.redirect(`/gym/${newGym._id}`); 
         } catch (err) {
           console.log(err);
         }
@@ -104,5 +105,10 @@ module.exports = {
         } catch (err) {
           console.log(err);
         }
+      },
+      getUpdateGymPage: async (req, res) => {
+        let gym = await Gym.findById({ _id: req.params.id });
+        console.log("Update Gym Page Works!: ", gym)
+        res.render("updateGymPage.ejs", {gym: gym});
       },
 };

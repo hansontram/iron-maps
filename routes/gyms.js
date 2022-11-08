@@ -12,21 +12,17 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Gym Routes - simplified for now
 
-// /api/gym/{id} - getGym 
-// router.get("/:id", ensureAuth, gymsController.getGym);
-router.get("/:id", gymsController.getGym);
 
-// /api/gym/createGym
+router.get("/:id", ensureAuth, gymsController.getGym);
+
+
     // TODO:  Add Cloudinary + upload img later
-router.post("/createGym", gymsController.createGym);
+router.post("/createGym", upload.single("file"), gymsController.createGym);
 
-// /api/gym/deleteGym/{id}
+
 router.delete("/deleteGym/:id", gymsController.deleteGym);
-
-// /api/gym/likeGym/{id}
 router.put("/likeGym/:id", gymsController.likeGym);
-
-// /api/gym/updateGym/{id}
 router.put("/updateGym/:id", gymsController.updateGym);
+router.get("/getUpdateGymPage/:id", gymsController.getUpdateGymPage);
 
 module.exports = router;

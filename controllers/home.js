@@ -4,6 +4,6 @@ module.exports = {
   },
   getAddGymPage: (req, res) => {
     console.log("Add Gym Page Works!")
-    res.render("addGymPage.ejs");
+  res.render("addGymPage.ejs", {user: req.user});
   },
 };
