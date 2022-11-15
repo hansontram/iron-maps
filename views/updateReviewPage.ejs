@@ -1,17 +1,27 @@
 <%- include('partials/header') -%>
 
+<!-- Whole Screen Container -->
+<div class="w-screen font-sans mt-5  ">
+  <h2 class="text-lg font-medium leading-6 text-gray-900 text-center mt-5">Update Review Page</h2>
  <!-- EDIT REVIEW FORM -->
- <div class="">
-    <h2>Update Review Page</h2>
+ <div class="flex flex-col  max-w-screen-md mx-auto sm:border sm:border-zinc-200 sm:rounded sm:px-2 h-96 mt-14">
+    
     <!-- TODO: fix action link -->
     <form action="/review/updateReview/<%= review._id%>?_method=PUT" method="POST">
       <div class="">
-          <label for="review" class="form-label">Review</label>
-          <input type="text" class="form-control" id="review" name="review" value="<%= review.review%>">
+          <label for="review" class="form-label block text-base font-medium text-gray-700 mt-8 mx-80">Review</label>
+          <input type="text" class="form-control  block w-full rounded-md sm:border-zinc-200 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-32 mt-8 px-4" id="review" name="review" value="<%= review.review%>">
       </div>
-      <button type="submit" class="">Submit</button>
+      
+      <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-blue-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mx-80 mt-8">Submit</button>
+    
+
+
+
+
     </form>
   </div>
+</div>
 
 
 

@@ -1,108 +1,124 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <h1>GYM PAGE</h1>
-  <div class="">
-    <div class="">
-      <h2><%= gym.gymName %></h2>
-      <img class="" src="<%= gym.image%>" />
-      <div class="">
+<!-- Entire Screen Container -->
+<div class="w-screen font-sans mt-5  ">
 
-        <!-- LIKE GYM BUTTON -->
-        <form
-          class=""
-          action="/gym/likegym/<%= gym.id %>?_method=PUT"
-          method="POST"
-        >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
-        </form>
-        
-        <h3 class="">Likes: <%= gym.likes %></h3>
-        <%if(gym.userId == user.id){ %>
-  
-          <!-- EDIT GYM BUTTON -->
-      
-  <a href="/addGymPage" class="addGym">
-    <span class="fas fa-edit"></span>
-    </a>
-         <!-- DELETE GYM BUTTON -->
-         <form
-         class=""
-         action="/gym/deletegym/<%= gym.id %>?_method=DELETE"
-         method="POST"
-       >
-         <button class="btn btn-primary fa fa-trash" type="submit"></button>
-       </form>
-        <%}%>
+  <!-- Parent Container -->
+  <div class="flex flex-col  max-w-screen-md mx-auto sm:border sm:border-zinc-200 sm:rounded sm:px-2 ">
+    <!-- Picture Container -->
+    <div class="mt-2 ">
+      <img class="" src="<%= gym.image%>" />
+    </div>
+    <!-- Title Container -->
+    <div class="text-2xl font-bold ">
+      <h2><%= gym.gymName %></h2>
+    </div>
+    <!-- Location Container -->
+    <div class="text-sm text-zinc-500">
+      <span class=" fa-solid fa-map-pin"></span>
+      <span><%= gym.location %></span>
+    </div>
+
+    <!-- Like Button Container -->
+    <div class="flex mt-px" >
+      <form class="" action="/gym/likegym/<%= gym.id %>?_method=PUT" method="POST">
+        <button class="btn btn-primary fa fa-heart text-rose-500" type="submit"></button>
+      </form>
+      <h3 class="ml-2"> <%= gym.likes %></h3>
+    </div>
+
+
+    <!-- Information Container -->
+    <div class="text-lg mt-4" ">
+      <!-- Description -->
+      <article class="leading-8">
+        <h2 class="font-semibold">Description:</h2>
+        <p class=""><%= gym.caption %></p>
+      </article>
+      <!-- Specialty -->
+      <div class="mt-4">
+        <h3 class="font-semibold">Specialty:</h3>
+        <span><%= gym.specialty %></span>
+      </div>
+      <!-- Hours -->
+      <div class="mt-4">
+        <h3 class="font-semibold">Business Hours:</h3>
+        <span><%= gym.hours %></span>
       </div>
     </div>
-    <div class="">
-      <h2><strong>Description:</strong></h2><p><%= gym.caption %></p>
-    </div>
-    <div class="">
-      <h2><strong>Specialty:</strong></h2><p><%= gym.specialty %></p>
-    </div>
-    <div class="">
-      <h2><strong>Business Hours:</strong></h2><p><%= gym.hours %></p>
-    </div>
-    <div class="">
-      <h2><strong>Location:</strong></h2><p><%= gym.location %></p>
-    </div>
-    <!-- REVIEWS SECTION (ADD REVIEW FORM) -->
-    <div class="">
-      <h2>Add a review</h2>
-      <form action="/review/createReview/<%=gym._id%>" method="POST">
-        <div class="">
-            <label for="review" class="form-label">Review</label>
-            <input type="text" class="form-control" id="review" name="review">
-        </div>
-        <button type="submit" class="">Submit</button>
+
+
+    <!-- Review Section Parent Container -->
+    <section class="max-w-screen-md max-h-screen mt-14">
+      <!-- Display Listed Reviews -->
+      <div>
+        <h4 class="font-semibold text-lg text-center">Reviews</h4>
+        <ul class="text-zinc-600 ">
+          <% for(var i=0; i<reviews.length; i++) {%>
+          <li class="col-6 justify-content-between mt-2 sm:border sm:border-zinc-200 sm:rounded sm:px-2">
+            <%= reviews[i].reviewBy%>: <%= reviews[i].review%>
+
+            <!-- edit & delete review button container -->
+            <%if(reviews[i].reviewById == user.id){ %>
+            <!--TODO: set to reviewBy = userid-->
+            <div class="flex">
+              <!-- EDIT REVIEW BUTTON -->
+              <a href="/review/getUpdateReviewPage/<%= reviews[i]._id%>" class="review">
+                <span class="text-sm mx-1 fas fa-edit"></span>
+              </a>
+
+              <!-- DELETE REVIEW BUTTON -->
+              <form action="/review/deleteReview/<%= reviews[i]._id%>?_method=DELETE" method="POST" class="">
+                <button class=" text-sm btn btn-primary fa fa-trash" type="submit"></button>
+              </form>
+            </div>
+            <%}%>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </section>
+
+    <!--Add Review Container -->
+    <div class="mt-5" ">
+      
+      <form action=" /review/createReview/<%=gym._id%>" method="POST">
+      <div class="">
+        <label for="review" class="form-label"></label>
+        <input type="text" class="form-control w-full h-32 border border-solid border-gray-300 text-base px-2" placeholder="Share your experience here." id="review" name="review">
+
+      </div>
+      <button type="submit" class="bg-blue-400 hover:bg-blue-600 text-white font-bold w-20 rounded text-sm">Submit</button>
       </form>
     </div>
-    <!-- DISPLAY LISTED REVIEWS -->
-    <ul>
-      <% for(var i=0; i<reviews.length; i++) {%>
-        <li class="col-6 justify-content-between mt-5">
-          <%= reviews[i].reviewBy%> says: <%= reviews[i].review%>
 
-    
-<!-- REVIEW EDIT & DELETE BUTTON -->
-<div class="row justify-content-between">
-    <%if(gym.userId == user.id){ %>  <!--TODO: set to reviewBy = userid-->
+    <!-- Return,edit,delete gym Parent Container -->
+    <div class="flex justify-center ">
+      <!-- Return to feed -->
+      <div class="text-sm text-blue-400 hover:text-blue-600 mr-4 mt-8 mb-2">
+        <a class="" href="/feed">Return to Feed</a>
+      </div>
+      <!-- Edit Gym Button -->
+      <div class="text-sm text-blue-400 hover:text-blue-600 mr-4 mt-8 mb-2">
+        <%if(gym.userId == user.id){ %>
+        <a href="/gym/getUpdateGymPage/<%= gym._id %>" class="updateGym">
+          <span>Edit Gym</span>
+        </a>
+      </div>
+      <!-- Delete Gym Button -->
+      <div class="text-sm text-blue-400 hover:text-blue-600 mr-4 mt-8 mb-2">
+        <form class="" action="/gym/deletegym/<%= gym.id %>?_method=DELETE" method="POST">
+          <button type="submit">Delete Gym</button>
+        </form>
+      </div>
+      <%}%>
 
-      <!-- EDIT REVIEW BUTTON -->
-      
-                  <a href="/review/getUpdateReviewPage/<%= reviews[i]._id%>" class="review">
-                    <span class="fas fa-edit"></span>
-                    </a>
-    
-    
-    <!-- DELETE REVIEW BUTTON -->
-      <form
-      action="/review/deleteReview/<%= reviews[i]._id%>?_method=DELETE"
-      method="POST"
-      class=""
-    >
-      <button class="btn btn-primary fa fa-trash" type="submit"></button>
-    </form>
-    <%}%>
-  </div>
-
-        </li>
-      <% } %>
-    </ul>
-
-
-
-    <div class="">
-
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        
-      
     </div>
+
+
+
+
+
   </div>
-</div>
-<% console.log("CONSOLE USER WORKS!", user) %>
-<% console.log("Feed Data (reviews): ", reviews) %>
-<%- include('partials/footer') -%>
-
-
+  <% console.log("CONSOLE USER WORKS!", user) %>
+      <% console.log("Feed Data (reviews): ", reviews) %>
+      <%- include('partials/footer') -%>

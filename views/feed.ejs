@@ -1,36 +1,67 @@
 <%- include('partials/header') -%>
-  <div class="container">
-   <div>
-        <!-- ADD GYM BUTTON -->
-   <div>
-    <a href="/addGymPage" class="addGym">
-      <span class="fas fa-edit"></span>
-      </a>
-   </div>
-   
-    <div class="">
-      <!-- LIST OF GYMS -->
-      <ul class="">
-        <% for(var i=0; i<gyms.length; i++) {%>
-          <li class="">
-            <a href="/gym/<%= gyms[i]._id%>">
-              <img class="" src="<%= gyms[i].image%>">
-              <div class="">
-                <h2><%= gyms[i].gymName %></h2>
-              </div>
-            </a>
-            <div class="">
-              <p><%= gyms[i].location %></p>
-            </div>
-            
-          </li>
-        <% } %>
-        <% console.log("Feed Data (all gyms): ", gyms) %>  <!-- if this log shows the gyms data in your console, then that means we have access to the data here. does not necessarily mean we're displaying it. -->
-       
-        </ul>
+<!-- Entire Screen Container -->
+<div class="w-screen font-sans mt-5">
+  <!-- Parent Container -->
+  <div class="container flex flex-col mx-auto">
+    <!-- HEADER CONTAINER [ADD GYM, LOGO] -->
+    <div class="flex w-full justify-center ">
+      <!-- ADD GYM -->
+      <div class="flex flex-col justify-center items-center w-1/2 ">
+        <div class="text-7xl font-bold mb-5 text-center">
+          <h2 >The Gym finder for strength athletes!</h2>
+        </div>
+        <div class="text-base mb-5  ">
+          <p>Your curated list of powerlifting, strongman, and bodybuilding gyms.</p>
+        </div>
+        <div>
+          <a href="/addGymPage">
+            <button class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 w-48 rounded ">
+              <span class="fa-solid fa-plus"></span>
+              Add your gym</button></a>
+        </div>
+      </div>
+      <!-- LOGO -->
+      <div class="border-solid border-2 border-grey-600 w-1/2">
+        <img src="/public/imgs/im-logo.png" alt="iron-maps-logo">
+      </div>
     </div>
-  </div>  
 
+
+    <!-- GYM FEED CONTAINER -->
+    <div class="flex flex-wrap w-full justify-center">
+      <% for(var i=0; i<gyms.length; i++) {%>
+      <li class="list-none m-2">
+        <div class="card w-96 bg-base-100 shadow-xl h-96 card-bordered border-solid border-2 border-grey-600 rounded-2xl">
+
+          <a href="/gym/<%= gyms[i]._id%>">
+            <img class="h-64 object-fill rounded-t-2xl " src="<%= gyms[i].image%>"> <!-- Fixed width   -->
+            <div class="card-body px-5 pt-2">
+              <h2 class="card-title font-bold text-xl">
+                <%= gyms[i].gymName %>
+                <!-- <div class="badge badge-secondary">NEW</div> -->
+              </h2>
+          </a>
+          <div class="text-sm text-zinc-400 ">
+            <span class=" fa-solid fa-map-pin"></span>
+            <span ><%= gyms[i].location %></span>
+          </div>
+          <div class="card-actions justify-end text-sm text-zinc-400 flex justify-between items-end mt-2 pt-2">
+            <div class="badge badge-outline "><%= gyms[i].specialty %></div> 
+            
+            <div>
+              <span><%= gyms[i].likes %></span>
+              <span class="badge-outline  fa-sharp fa-solid fa-heart text-rose-500"></span>
+            </div>
+          </div>
+        </div>
+    </div>
+    </li>
+    <% } %>
+    <!-- <% console.log("Feed Data (all gyms): ", gyms) %>  if this log shows the gyms data in your console, then that means we have access to the data here. does not necessarily mean we're displaying it. -->
+
+    </ul>
+  </div>
+</div>
 
 
 <%- include('partials/footer') -%>

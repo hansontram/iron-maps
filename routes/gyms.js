@@ -16,7 +16,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 router.get("/:id", ensureAuth, gymsController.getGym);
 
 
-    // TODO:  Add Cloudinary + upload img later
+  
 router.post("/createGym", upload.single("file"), gymsController.createGym);
 
 

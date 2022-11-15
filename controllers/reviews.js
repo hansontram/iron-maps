@@ -23,8 +23,8 @@ module.exports = {
         review: req.body.review,
         likes: 0,
         gymId: req.params.id,
-        reviewBy: "hanson",//TODO: add back req.user.userName when hooking up front-end
-        reviewById: "635af8f560c69c6baf6bda54", //TODO: add back req.user.id when hooking up front-end
+        reviewBy: req.user.userName,
+        reviewById: req.user.id,
       });
       console.log("Review has been added!", newReview);
       res.redirect("/gym/"+req.params.id);
