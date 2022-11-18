@@ -4,8 +4,7 @@ module.exports = {
   getAllReviews: async (req, res) => {
     try {
       const reviews = await Review.find({gymId: req.params.id}).sort({ createdAt: "desc" }).lean();
-      // let's add a console.log below
-      // save this and hit this endpoint and we should see "gyms" being logged to the terminal
+     
       console.log('Reviews: ', reviews)
       res.render("gym.ejs", { reviews: reviews });  
     
@@ -14,8 +13,7 @@ module.exports = {
     }
   },
   createReview: async (req, res) => {
-    // console.log(req.body)
-    // console.log(req.user)
+  
     
     console.log("createReview endpoint hit")
     try {

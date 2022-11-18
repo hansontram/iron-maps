@@ -1,60 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gym Project</title>
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/imgs/favicon-32x32.png"
-    />
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-      crossorigin="anonymous"
-    /> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
 
-    <script src="https://kit.fontawesome.com/efdaf74e05.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/public/styles/style.css" />
-  </head>
-  <body>
-
-
-<!-- NAV CONTAINER -->
-<nav class=" flex justify-between  text-lg font-sans w-full" >
-
-<!-- LOGO CONTAINER -->
-  <div class="" >
-    
-    <span class="text-xl font-bold text-gray-600 transition-colors duration-300 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"> <a href="/feed">IRON MAPS</a></span> 
-  </div>
-  <!-- ITEMS CONTAINER -->
-  <div class="w-96 mr-12" >
-    <ul class="flex justify-between">
-      <li class="text-zinc-500 dark:text-zinc-400  font-medium hover:text-blue-500  px-3 py-1 "><a href="/feed">Feed</a></li> 
-      <li class="text-zinc-500 dark:text-zinc-400  font-medium hover:text-blue-500  px-3 py-1"><a href="">Gyms</a></li> 
-      <li class="text-zinc-500 dark:text-zinc-400  font-medium hover:text-blue-500  px-3 py-1><a href="">About</a></li>
-      
-      <a href="/addGymPage">
-        <button class="bg-blue-400 hover:bg-blue-600 text-sm text-white font-bold w-22 rounded text-sm">
-          <span class="fa-solid fa-plus"></span>
-          Add your gym</button></a>
-    </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iron Maps</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/imgs/favicon-32x32.png" />
   
-</div> 
-</nav>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+  <script src="https://kit.fontawesome.com/efdaf74e05.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/public/styles/style.css" />
+</head>
+
+<body>
+
+  <!-- NAV CONTAINER -->
+  <nav class="text-lg font-sans w-screen h-12 flex items-center">
+    <div class="container flex justify-between mx-auto">
+      <!-- LOGO CONTAINER -->
+      <div class="w-20">
+        <a href="/feed"><img  src="/public/imgs/iron-maps-high-resolution-logo-black-on-transparent-background.png" alt="iron-maps-logo"></a>
+
+      </div>
+      <!-- ITEMS CONTAINER -->
+      <div class="w-auto">
+        <ul class="flex justify-between items-center ">
+          <li class="font-bold text-zinc-500 dark:text-zinc-400  hover:text-blue-500 px-3 py-1"><a href="/feed">Feed</a></li>
+          <li class="font-bold text-zinc-500 dark:text-zinc-400 hover:text-blue-500 px-3 py-1"><a href="/allGyms">Gyms</a></li>
+          <li class=" font-bold text-zinc-500 dark:text-zinc-400  hover:text-blue-500 px-3 py-1"><a href="/about">About</a></li>
+          <li class=" font-bold text-zinc-500 dark:text-zinc-400  hover:text-blue-500 px-3 py-1"><a href="/logout">Logout</a></li>
+          
+          <a href=" /addGymPage">
+            <button class="bg-blue-400 hover:bg-blue-600 text-sm text-white font-bold w-32  rounded text-sm py-2 px-3">
+              <span class="fa-solid fa-plus"></span>
+              Add your gym</button></a>
+        </ul>
+      </div>
+    </div>
 
 
-    </header>
-  </body>
+  </nav>
+
+
+  </header>
+</body>
+
 </html>

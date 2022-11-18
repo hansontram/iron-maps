@@ -55,7 +55,7 @@
         <ul class="text-zinc-600 ">
           <% for(var i=0; i<reviews.length; i++) {%>
           <li class="col-6 justify-content-between mt-2 sm:border sm:border-zinc-200 sm:rounded sm:px-2">
-            <%= reviews[i].reviewBy%>: <%= reviews[i].review%>
+            <strong><%= reviews[i].reviewBy%></strong>: <%= reviews[i].review%>
 
             <!-- edit & delete review button container -->
             <%if(reviews[i].reviewById == user.id){ %>

@@ -19,15 +19,14 @@ module.exports = {
       }
     },
       getGym: async (req, res) => {
-        console.log("THIS HIT")
+        console.log(req.params)
         try {
-          console.log(req.params)
+          console.log("THIS HIT")
           const gym = await Gym.findById(req.params.id);
-          console.log(gym)
-          const reviews = await Review.find({gymId: req.params.id}).sort({ createdAt: "asc" }).lean(); //TODO: understand these mongo methods (.find,.lean), check mongo docs
+          const reviews = await Review.find({gymId: req.params.id}).sort({ createdAt: "asc" }).lean(); 
           res.render("gym.ejs", { gym: gym, user: req.user, reviews: reviews });
         } catch (err) {
-          console.log(err);
+          console.log("Get Gym Error: ", err);
         }
       },
       createGym: async (req, res) => {
@@ -35,7 +34,7 @@ module.exports = {
         console.log(req.file)
         console.log("createGym endpoint hit")
         try {
-          // TODO: Upload image to cloudinary
+          
           const result = await cloudinary.uploader.upload(req.file.path);
     
           const newGym = await Gym.create({ 
@@ -112,5 +111,18 @@ module.exports = {
         let gym = await Gym.findById({ _id: req.params.id });
         console.log("Update Gym Page Works!: ", gym)
         res.render("updateGymPage.ejs", {gym: gym});
+      },
+      getAllGyms: async (req, res) => {
+        try {
+          // const gyms = await Gym.find().sort({ createdAt: "desc" }).lean();
+          //Changed to highest likes to show up on feed
+          const gyms = await Gym.find().sort({ likes: "desc" }).lean();
+          
+          console.log('Gyms: ', gyms)
+          res.render("allGyms.ejs", { gyms: gyms });  
+        
+        } catch (err) {
+          console.log(err);
+        }
       },
 };

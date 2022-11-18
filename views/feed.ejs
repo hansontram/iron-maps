@@ -4,32 +4,31 @@
   <!-- Parent Container -->
   <div class="container flex flex-col mx-auto">
     <!-- HEADER CONTAINER [ADD GYM, LOGO] -->
-    <div class="flex w-full justify-center ">
-      <!-- ADD GYM -->
-      <div class="flex flex-col justify-center items-center w-1/2 ">
-        <div class="text-7xl font-bold mb-5 text-center">
+    <div class="flex w-full justify-center  mb-5 ">
+
+      
+      <!-- HEADER -->
+      <div class="flex flex-col justify-center items-center w-full h-80 bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r rounded-2xl">
+        <div class="text-4xl font-bold mb-5 text-center text-white">
           <h2 >The Gym finder for strength athletes!</h2>
         </div>
-        <div class="text-base mb-5  ">
+        <div class="text-base mb-5 text-white">
           <p>Your curated list of powerlifting, strongman, and bodybuilding gyms.</p>
         </div>
         <div>
           <a href="/addGymPage">
-            <button class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 w-48 rounded ">
+            <button class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 w-40 rounded ">
               <span class="fa-solid fa-plus"></span>
               Add your gym</button></a>
         </div>
       </div>
-      <!-- LOGO -->
-      <div class="border-solid border-2 border-grey-600 w-1/2">
-        <img src="/public/imgs/im-logo.png" alt="iron-maps-logo">
-      </div>
+  
     </div>
 
 
     <!-- GYM FEED CONTAINER -->
     <div class="flex flex-wrap w-full justify-center">
-      <% for(var i=0; i<gyms.length; i++) {%>
+      <% for(var i=0; i<9; i++) {%>
       <li class="list-none m-2">
         <div class="card w-96 bg-base-100 shadow-xl h-96 card-bordered border-solid border-2 border-grey-600 rounded-2xl">
 
@@ -38,7 +37,7 @@
             <div class="card-body px-5 pt-2">
               <h2 class="card-title font-bold text-xl">
                 <%= gyms[i].gymName %>
-                <!-- <div class="badge badge-secondary">NEW</div> -->
+                
               </h2>
           </a>
           <div class="text-sm text-zinc-400 ">
@@ -57,7 +56,6 @@
     </div>
     </li>
     <% } %>
-    <!-- <% console.log("Feed Data (all gyms): ", gyms) %>  if this log shows the gyms data in your console, then that means we have access to the data here. does not necessarily mean we're displaying it. -->
 
     </ul>
   </div>

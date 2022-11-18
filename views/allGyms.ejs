@@ -1,0 +1,53 @@
+<%- include('partials/header') -%>
+<!-- Entire Screen Container -->
+<div class="w-screen font-sans mt-5">
+  <!-- Parent Container -->
+  <div class="container flex flex-col mx-auto">
+    <!-- HEADER CONTAINER [ADD GYM, LOGO] -->
+    <div class="flex w-full justify-center  mb-5 ">
+
+
+
+    </div>
+
+  </div>
+
+
+  <!-- GYM FEED CONTAINER -->
+  <div class="flex flex-wrap w-full justify-center">
+    <% for(var i=0; i<gyms.length; i++) {%>
+    <li class="list-none m-2">
+      <div class="card w-96 bg-base-100 shadow-xl h-96 card-bordered border-solid border-2 border-grey-600 rounded-2xl">
+
+        <a href="/gym/<%= gyms[i]._id%>">
+          <img class="h-64 object-fill rounded-t-2xl " src="<%= gyms[i].image%>"> <!-- Fixed width   -->
+          <div class="card-body px-5 pt-2">
+            <h2 class="card-title font-bold text-xl">
+              <%= gyms[i].gymName %>
+
+            </h2>
+        </a>
+        <div class="text-sm text-zinc-400 ">
+          <span class=" fa-solid fa-map-pin"></span>
+          <span><%= gyms[i].location %></span>
+        </div>
+        <div class="card-actions justify-end text-sm text-zinc-400 flex justify-between items-end mt-2 pt-2">
+          <div class="badge badge-outline "><%= gyms[i].specialty %></div>
+
+          <div>
+            <span><%= gyms[i].likes %></span>
+            <span class="badge-outline  fa-sharp fa-solid fa-heart text-rose-500"></span>
+          </div>
+        </div>
+      </div>
+  </div>
+  </li>
+  <% } %>
+
+
+  </ul>
+</div>
+</div>
+
+
+<%- include('partials/footer') -%>
