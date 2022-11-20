@@ -6,7 +6,7 @@ const GymSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    // TODO: change to array for multiple images
+    // TODO: in the future, add array for multiple images
     type: String,        
     require: true,
   },
