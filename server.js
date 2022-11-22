@@ -12,7 +12,7 @@ const mainRoutes = require("./routes/main");
 const gymRoutes = require("./routes/gyms");
 const reviewRoutes = require("./routes/reviews");
 const path = require("path");
-const port = process.env.PORT || 3000;
+
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -62,6 +62,6 @@ app.use("/gym", gymRoutes);
 app.use("/review", reviewRoutes);
 
 //Server Running
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Server is running, you better catch it!");
 });
