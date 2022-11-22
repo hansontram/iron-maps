@@ -61,13 +61,6 @@ app.use("/gym", gymRoutes);
 app.use("/review", reviewRoutes);
 
 //Server Running
-// app.listen(process.env.PORT, () => {
-//   console.log("Server is running, you better catch it!");
-// });
-
-//Connect to the database before listening
-connectDB().then(() => {
-  app.listen(PORT, () => {
-      console.log("listening for requests");
-  })
-})
+app.listen(process.env.PORT, () => {
+  console.log("Server is running, you better catch it!");
+});
