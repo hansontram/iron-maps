@@ -22,7 +22,7 @@ require("./config/passport")(passport);
 
 //Connect To Database
 connectDB().then(() => {
-  app.listen(process.env.PORT || 3000, () => {
+  app.listen(process.env.PORT, () => {
     console.log("Server is running, you better catch it!");
   });
 });
