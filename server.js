@@ -61,6 +61,6 @@ app.use("/gym", gymRoutes);
 app.use("/review", reviewRoutes);
 
 //Server Running
-app.listen($PORT () => {
+app.listen(process.env.PORT, () => {
   console.log("Server is running, you better catch it!");
 });
