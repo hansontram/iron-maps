@@ -6,9 +6,10 @@ Users have the ability to add/edit/delete gym postings, add/edit/delete reviews,
 
 ![Screen Shot 2022-11-22 at 5 06 51 PM](https://user-images.githubusercontent.com/97640502/203451205-091dc89e-2a2e-4087-a60d-098f949a5b8c.png)
 ![Screen Shot 2022-11-22 at 5 05 18 PM](https://user-images.githubusercontent.com/97640502/203451174-0326bce8-5046-4b6e-88c0-46814be93bc2.png)
+![Screen Shot 2022-11-22 at 5 09 46 PM](https://user-images.githubusercontent.com/97640502/203451459-5ffa5080-25da-4407-9640-851b6e6eff96.png)
 
 
-![alt tag](http://placecorgi.com/1200/650)
+
 
 ## How It's Made:
 
