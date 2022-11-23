@@ -41,9 +41,8 @@ categorizing gyms by their cities
 
 ## Check Out My Other Work:
 
-[South Coast Cosmo Society's: NASA's Astronomy Picture of the Day](https://github.com/hansontram/sccs-nasa-apod) - Create tasks, set your priority and record pomodoro sessions with this all-in-one task tracker
-
-[Pick-up Hoops Scoreboard(https://github.com/hansontram/hoops-scoreboard) - A scoreboard web app allowing users to log the score of a pick-up game of basketball.
+[SCCS: NASA's Astronomy Picture of the Day](https://github.com/hansontram/sccs-nasa-apod) - Select a date and display a picture or video loaded from NASA's very own API.
+[Pick-up Hoops Scoreboard](https://github.com/hansontram/hoops-scoreboard) - A scoreboard allowing users to log the score of a pick-up game of basketball.
 
 [CodeWars Challenges](https://github.com/hansontram/codewars-challenges) - A collection of all the CodeWars problems I've done to sharpen my problem solving skills and practice Javascript.
 
