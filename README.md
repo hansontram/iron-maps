@@ -26,9 +26,9 @@ Users are authenticated using PassportJS so anyone can have their own account. P
 
 Core functionality on the app is completed. As per requests from friends and family, I will be implementing these features in the future:
 
--Adding pagination to organize the all gym page into multiple pages
--ability to add social media links to a gyms post
--ability to add multiple images per post 
+- Adding pagination to organize the all gym page into multiple pages
+- ability to add social media links to a gyms post
+- ability to add multiple images per post 
 
 ## Lessons Learned:
 
