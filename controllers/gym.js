@@ -115,6 +115,7 @@ module.exports = {
       getAllGyms: async (req, res) => {
         try {
           const gyms = await Gym.find().sort({ createdAt: "desc" }).lean();
+          
           //Changed to highest likes to show up on feed
           // const gyms = await Gym.find().sort({ likes: "desc" }).lean();
           
