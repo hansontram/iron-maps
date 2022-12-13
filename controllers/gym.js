@@ -19,9 +19,7 @@ module.exports = {
       }
     },
       getGym: async (req, res) => {
-        console.log(req.params)
         try {
-          console.log("THIS HIT")
           const gym = await Gym.findById(req.params.id);
           const reviews = await Review.find({gymId: req.params.id}).sort({ createdAt: "asc" }).lean(); 
           res.render("gym.ejs", { gym: gym, user: req.user, reviews: reviews });
@@ -30,13 +28,9 @@ module.exports = {
         }
       },
       createGym: async (req, res) => {
-        console.log(req.body)
-        console.log(req.file)
         console.log("createGym endpoint hit")
         try {
-          
           const result = await cloudinary.uploader.upload(req.file.path);
-    
           const newGym = await Gym.create({ 
             gymName: req.body.gymName,
             image: result.secure_url,
@@ -51,7 +45,7 @@ module.exports = {
           console.log("Gym has been added!", newGym);
           res.redirect(`/gym/${newGym._id}`); 
         } catch (err) {
-          console.log(err);
+          console.log("Create Gym Error: ", err);
         }
       },
       likeGym: async (req, res) => {
