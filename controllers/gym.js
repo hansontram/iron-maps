@@ -9,13 +9,12 @@ module.exports = {
         // const gyms = await Gym.find().sort({ createdAt: "desc" }).lean();
         //Changed to highest likes to show up on feed
         const gyms = await Gym.find().sort({ likes: "desc" }).lean();
-        // let's add a console.log below
-        // save this and hit this endpoint and we should see "gyms" being logged to the terminal
+       
         console.log('Gyms: ', gyms)
         res.render("feed.ejs", { gyms: gyms });  
       
       } catch (err) {
-        console.log(err);
+        console.log("Get Feed: ",err);
       }
     },
       getGym: async (req, res) => {
@@ -59,7 +58,7 @@ module.exports = {
           console.log("Likes +1");
           res.redirect(`/gym/${req.params.id}`);
         } catch (err) {
-          console.log(err);
+          console.log("Like Gym Error",err);
         }
       },
       deleteGym: async (req, res) => {
@@ -71,9 +70,9 @@ module.exports = {
           // Delete post from db
           await Gym.remove({ _id: req.params.id });
           console.log("Deleted Gym");
-          res.redirect("/feed");
+          res.redirect("/allGyms");
         } catch (err) {
-          res.redirect("/feed");
+          res.redirect("/allGyms");
         }
       },
       updateGym: async (req, res) => {
@@ -98,7 +97,7 @@ module.exports = {
           console.log("Gym updated successfully!", result);
           res.redirect(`/gym/${req.params.id}`);
         } catch (err) {
-          console.log(err);
+          console.log("updateGym Error", err);
         }
       },
       getUpdateGymPage: async (req, res) => {
@@ -117,7 +116,7 @@ module.exports = {
           res.render("allGyms.ejs", { gyms: gyms });  
         
         } catch (err) {
-          console.log(err);
+          console.log("GetAllGyms", err);
         }
       },
 };
